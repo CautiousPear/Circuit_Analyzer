@@ -138,7 +138,11 @@ void CircuitAnalysis::sendData_()
 {
   int rawVolts = analogRead(sensePin_);
   float voltage = rawVolts * (5.0 / 1023.0);
-  float current = voltage / shuntResistor_;
+  float current = 0.0;
+  if (shuntResistor_ > 0)
+  {
+    current = voltage / shuntResistor_;
+  }
   unsigned long time = millis() - startTime_ms_;
 
   Serial.print("D:");
