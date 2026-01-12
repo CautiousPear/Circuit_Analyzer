@@ -11,7 +11,7 @@
 
 ### Option A: Run from pre-built executable
 
-1. Download `CircuitAnalyzer.zip` from the [Releases]() page.
+1. Download `CircuitAnalyzer.zip` from the [Releases](https://github.com/CautiousPear/Circuit_Analyzer/releases) page.
 
 2. Extract the folder.
 
