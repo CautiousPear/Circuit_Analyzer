@@ -64,4 +64,4 @@ Further Info: [Measuring Current using Shunt Resistors](https://www.tek.com/en/b
 
 - The Arduino sketch `example.ino` MUST be **non-blocking** in order to send data over Serial.
 
-- Samples are sent to the Python script in CSV format: timestamp,<voltage,current
+- Samples are sent to the Python script in CSV format: timestamp,voltage,current
