@@ -1,7 +1,7 @@
 /*
   CircuitAnalysis.cpp - Library for sending voltage and current readings across a circuit.
   Created by CautiousPear, January 12, 2026.
-  Updated by CautiousPear, January 12, 2026.
+  Updated by CautiousPear, January 14, 2026.
   Released into the public domain.
 */
 
@@ -115,18 +115,6 @@ void CircuitAnalysis::processCommand_()
           Serial.print("OSCIL:INTERVAL SET ");
           Serial.println(sampleInterval_ms_);
         }
-      }
-    }
-    else if (cmd.startsWith("OSCIL:BAUD,"))
-    {
-      int commaIndex = cmd.indexOf(',');
-      if (commaIndex != -1)
-      {
-        unsigned int customBaud_ = cmd.substring(commaIndex + 1).toInt();
-        Serial.print("OSCIL:BAUD SET ");
-        Serial.println(customBaud_);
-        Serial.end();
-        Serial.begin(customBaud_);
       }
     }
   }
