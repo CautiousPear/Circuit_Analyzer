@@ -25,10 +25,10 @@ class MainWindow(QMainWindow):
         self.points_stored = 1000 # Stores last x number of points
         self.update_interval = 10 # Update every 10 ms default (100 times/sec)
 
-        # Timer
+        # Window Refresh Timer
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_plot)
-        self.timer.start(10) # Refresh page every 50 ms
+        self.timer.start(10) # Refresh page every 10 ms
 
         # Buttons
         self.start_button = QPushButton("Start/Stop")
@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
         if not samples:
             return
         for timestamp, voltage, current in samples:
-            self.ms_list.append(timestamp/1000)
+            self.ms_list.append(timestamp/1000) # Save timestamp as seconds for unit conversion
             self.volts_list.append(voltage)
             self.amps_list.append(current)
 
@@ -104,7 +104,7 @@ class MainWindow(QMainWindow):
 
 
     def set_update_interval(self):
-        self.update_interval, ok = QInputDialog.getInt(self, "Update Interval", "Update interval (ms):", self.update_interval, 5, 1000000, 1) # Arduino cannot reliably output quicker than 5 ms tick
+        self.update_interval, ok = QInputDialog.getInt(self, "Update Interval", "Update interval (ms):", self.update_interval, 1, 1000000, 1) 
 
         if ok:
             self.backend.set_update_interval(self.update_interval)
